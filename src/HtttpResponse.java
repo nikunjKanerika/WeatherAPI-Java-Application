@@ -1,0 +1,2 @@
+public class HtttpResponse<T> {
+}
