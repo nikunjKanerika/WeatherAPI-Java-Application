@@ -16,19 +16,16 @@ import java.net.http.HttpResponse;
 
 public class Main {
 
-    // Replace with your Open Exchange Rates API Key
 
     public static void main(String[] args) {
-//        String url = "https://api.openweathermap.org/data/2.5/weather?q=Paris,FR&appid={c5176e92305a818f3f8ddd2e0addb937}\n";
-//        String url = "https://geocoding-api.open-meteo.com/v1/search?name=Berlin&count=1&language=en&format=json";
 
         Scanner scanner = new Scanner(System.in);
 
-        // Prompt user to enter a city name
-        System.out.print("Enter city name: ");
-        String cityName = scanner.nextLine();  // Read the user input
 
-        scanner.close();  // Close the scanner after input is taken
+        System.out.print("Enter city name: ");
+        String cityName = scanner.nextLine();
+
+        scanner.close();
 
         // Construct the URL with the dynamic city name
         String urlString = "https://geocoding-api.open-meteo.com/v1/search?name=" + cityName + "&count=1&language=en&format=json";
@@ -49,17 +46,6 @@ public class Main {
             // Enable writing output (though not necessary for GET requests)
             connection.setDoOutput(true);
 
-            // Request parameters (optional, used in POST requests, not required for this GET request)
-//            String parameters = "q=Paris1";  // This is not needed, since it's a GET request
-//
-//            // Send the parameters (not required for GET, but added for the example)
-//            try (OutputStream os = connection.getOutputStream()) {
-//                os.write(parameters.getBytes());
-//                os.flush();
-//            }
-
-
-            // Get the HTTP response code
             int responseCode = connection.getResponseCode();
             System.out.println("Response Code: " + responseCode);
 
